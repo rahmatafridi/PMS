@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ds.pms.apicommon\ds.pms.apicommon.csproj" />
+    <ProjectReference Include="..\ds.pms.dal\ds.pms.dal.csproj" />
+    <ProjectReference Include="..\ds.pms.helpers\ds.pms.helpers.csproj" />
+    <ProjectReference Include="..\ds.pms.bl.logger\ds.pms.bl.logger.csproj" />
+  </ItemGroup>
+
+</Project>

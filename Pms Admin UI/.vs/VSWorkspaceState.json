@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\Clients",
+    "\\src\\components\\Permission",
+    "\\src\\components\\RoomHistory",
+    "\\src\\components\\Tenant",
+    "\\src\\components\\UIComponents",
+    "\\src\\components\\UIComponents\\SidebarPlugin",
+    "\\src\\helpers"
+  ],
+  "PreviewInSolutionExplorer": false
+}

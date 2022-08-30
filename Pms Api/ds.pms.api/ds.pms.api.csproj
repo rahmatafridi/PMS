@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<UserSecretsId>10e5438d-783a-4b4a-bac9-e58e9ac8be68</UserSecretsId>
+		<DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<NoWarn>$(NoWarn);1591</NoWarn>
+	</PropertyGroup>
+	
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DocumentationFile>D:\Sajid\FDESIGNS 8 Aug 2021\PMS.API\ds.pms.api\ds.pms.api.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.1.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ds.pms.bl.clients\ds.pms.bl.clients.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.compliancepropertydocs\ds.pms.bl.compliancepropertydocs.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.compliances\ds.pms.bl.compliances.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.configs\ds.pms.bl.configs.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.dashboard\ds.pms.bl.dashboard.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.documents\ds.pms.bl.documents.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.notescategory\ds.pms.bl.notescategory.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.notes\ds.pms.bl.notes.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.optionheaders\ds.pms.bl.optionheaders.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.options\ds.pms.bl.options.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.properties\ds.pms.bl.properties.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.providers\ds.pms.bl.providers.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.reports\ds.pms.bl.reports.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.roles\ds.pms.bl.roles.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.roomhistory\ds.pms.bl.roomhistory.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.rooms\ds.pms.bl.rooms.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.tenants\ds.pms.bl.tenants.csproj" />
+		<ProjectReference Include="..\ds.pms.bl.users\ds.pms.bl.users.csproj" />
+	</ItemGroup>
+
+
+</Project>

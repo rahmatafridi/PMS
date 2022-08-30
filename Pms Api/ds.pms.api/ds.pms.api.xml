@@ -1,0 +1,689 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ds.pms.api</name>
+    </assembly>
+    <members>
+        <member name="T:ds.pms.api.Controllers.BaseController">
+            <summary>
+            Base controller containing all shared functionality among API controllers
+            </summary>
+        </member>
+        <member name="F:ds.pms.api.Controllers.BaseController.connectionSettings">
+            <summary>
+            Operations database connection string settings
+            </summary>
+        </member>
+        <member name="F:ds.pms.api.Controllers.BaseController.identitySettings">
+            <summary>
+            Identity API settings
+            </summary>
+        </member>
+        <member name="P:ds.pms.api.Controllers.BaseController.CurrentUser">
+            <summary>
+            Returns current logged in user
+            </summary>
+        </member>
+        <member name="P:ds.pms.api.Controllers.BaseController.IsUserAuthenticated">
+            <summary>
+            Returns flag if user is logged in
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.BaseController.#ctor(Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings})">
+            <summary>
+            Base constructor for all API controllers
+            </summary>
+            <param name="iConnectionSettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ClientController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.ClientController},Microsoft.Extensions.Logging.ILogger{pms.bl.clients.Services.ClientService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            client controller constructor
+            </summary>
+            <param name="clientControllerLogger"></param>
+            <param name="clientServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ClientController.GetActiveClientList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get client list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ClientController.GetClientById(System.Int32)">
+            <summary>
+            get client by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ClientController.AddClient(ds.pms.bl.clients.Models.Client)">
+            <summary>
+            add client 
+            </summary>
+            <remarks>add new client information </remarks>
+            <param name="client">The client json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ClientController.UpdateClient(ds.pms.bl.clients.Models.UpdateClient)">
+            <summary>
+            update client 
+            </summary>
+            <remarks>update client information </remarks>
+            <param name="updateClient">The client json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ClientController.CheckEmail(System.Nullable{System.Int64},System.String)">
+            <summary>
+            check if email is not in use for new client
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ClientController.SoftDeleteClient(System.Int32)">
+            <summary>
+            soft delete client 
+            </summary>
+            <remarks>Soft delete client </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ClientController.HardDeleteClient(System.Int32)">
+            <summary>
+            forcefully delete client 
+            </summary>
+            <remarks>forcefully delete client </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ComplianceController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.ComplianceController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.compliances.Services.ComplianceService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            Compliance controller constructor
+            </summary>
+            <param name="complianceControllerLogger"></param>
+            <param name="complianceServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ComplianceController.GetActiveComplianceList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get compliance list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ComplianceController.GetComplianceById(System.Int32)">
+            <summary>
+            get compliance by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ComplianceController.AddCompliance(ds.pms.bl.compliances.Models.Compliance)">
+            <summary>
+            add compliance 
+            </summary>
+            <remarks>add new compliance information </remarks>
+            <param name="addCompliance">The compliance json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ComplianceController.UpdateCompliance(ds.pms.bl.compliances.Models.UpdateCompliance)">
+            <summary>
+            update compliance 
+            </summary>
+            <remarks>update compliance information </remarks>
+            <param name="updateCompliance">The compliance json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ComplianceController.SoftDeleteCompliance(System.Int32)">
+            <summary>
+            soft delete compliance 
+            </summary>
+            <remarks>Soft delete compliance </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ComplianceController.HardDeleteCompliance(System.Int32)">
+            <summary>
+            forcefully delete compliance 
+            </summary>
+            <remarks>forcefully delete compliance </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.CompliancePropertyDocController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.CompliancePropertyDocController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.compliancepropertydocs.Services.CompliancePropertyDocService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            CompliancePropertyDoc controller constructor
+            </summary>
+            <param name="compliancePropertyDocControllerLogger"></param>
+            <param name="compliancePropertyDocServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.CompliancePropertyDocController.GetActiveCompliancePropertyDocList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get compliance property doc list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.CompliancePropertyDocController.GetCompliancePropertyDocById(System.Int32)">
+            <summary>
+            get compliance property doc by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.CompliancePropertyDocController.AddCompliancePropertyDoc(ds.pms.bl.compliancepropertydocs.Models.CompliancePropertyDoc)">
+            <summary>
+            add compliance property doc 
+            </summary>
+            <remarks>add new compliance property doc information </remarks>
+            <param name="addCompliancePropertyDoc">The compliance property doc json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.CompliancePropertyDocController.UpdateCompliancePropertyDoc(ds.pms.bl.compliancepropertydocs.Models.UpdateCompliancePropertyDoc)">
+            <summary>
+            update compliance property doc 
+            </summary>
+            <remarks>update compliance property doc information </remarks>
+            <param name="updateCompliancePropertyDoc">The compliance property doc json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.CompliancePropertyDocController.SoftDeleteCompliancePropertyDoc(System.Int32)">
+            <summary>
+            soft delete compliance property doc 
+            </summary>
+            <remarks>Soft delete compliance property doc </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.CompliancePropertyDocController.HardDeleteCompliancePropertyDoc(System.Int32)">
+            <summary>
+            forcefully delete compliance property doc 
+            </summary> 
+            <remarks>forcefully delete compliance property doc </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ConfigController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.ConfigController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.configs.Services.ConfigService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            Config controller constructor
+            </summary>
+            <param name="configControllerLogger"></param>
+            <param name="configServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ConfigController.GetActiveConfigList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get config list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ConfigController.GetConfigById(System.Int32)">
+            <summary>
+            get config by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ConfigController.AddConfig(ds.pms.bl.configs.Models.Config)">
+            <summary>
+            add config 
+            </summary>
+            <remarks>add new config information </remarks>
+            <param name="addConfig">The config json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ConfigController.UpdateConfig(ds.pms.bl.configs.Models.Config)">
+            <summary>
+            update config 
+            </summary>
+            <remarks>update config information </remarks>
+            <param name="updateConfig">The config json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ConfigController.SoftDeleteConfig(System.Int32)">
+            <summary>
+            soft delete config 
+            </summary>
+            <remarks>Soft delete config </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ConfigController.HardDeleteConfig(System.Int32)">
+            <summary>
+            forcefully delete config 
+            </summary>
+            <remarks>forcefully delete config </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.DocumentController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.DocumentController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.documents.Services.DocumentService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            Document controller constructor
+            </summary>
+            <param name="documentControllerLogger"></param>
+            <param name="documentServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.DocumentController.GetActiveDocumentList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get document list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.DocumentController.GetDocumentById(System.Int32)">
+            <summary>
+            get document by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.DocumentController.AddDocument(ds.pms.bl.documents.Models.Document)">
+            <summary>
+            add document 
+            </summary>
+            <remarks>add new document information </remarks>
+            <param name="addDocument">The document json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.DocumentController.UpdateDocument(ds.pms.bl.documents.Models.Document)">
+            <summary>
+            update document 
+            </summary>
+            <remarks>update document information </remarks>
+            <param name="updateDocument">The document json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.DocumentController.SoftDeleteDocument(System.Int32)">
+            <summary>
+            soft delete document 
+            </summary>
+            <remarks>Soft delete document </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.DocumentController.HardDeleteDocument(System.Int32)">
+            <summary>
+            forcefully delete document 
+            </summary>
+            <remarks>forcefully delete document </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NoteController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.NoteController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.notes.Services.NoteService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            Note controller constructor
+            </summary>
+            <param name="noteControllerLogger"></param>
+            <param name="noteServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NoteController.GetActiveNoteList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get note list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NoteController.GetNoteById(System.Int32)">
+            <summary>
+            get note by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NoteController.AddNote(ds.pms.bl.notes.Models.Note)">
+            <summary>
+            add note 
+            </summary>
+            <remarks>add new note information </remarks>
+            <param name="addNote">The note json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NoteController.UpdateNote(ds.pms.bl.notes.Models.Note)">
+            <summary>
+            update note 
+            </summary>
+            <remarks>update note information </remarks>
+            <param name="updateNote">The note json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NoteController.SoftDeleteNote(System.Int32)">
+            <summary>
+            soft delete note 
+            </summary>
+            <remarks>Soft delete note </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NoteController.HardDeleteNote(System.Int32)">
+            <summary>
+            forcefully delete note 
+            </summary>
+            <remarks>forcefully delete note </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NotesCategoryController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.NotesCategoryController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.notescategory.Services.NotesCategoryService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            NotesCategory controller constructor
+            </summary>
+            <param name="notesCategoryControllerLogger"></param>
+            <param name="notesCategoryServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NotesCategoryController.GetActiveNotesCategoryList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get notes category list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NotesCategoryController.GetNotesCategoryById(System.Int32)">
+            <summary>
+            get notes category by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NotesCategoryController.AddNotesCategory(ds.pms.bl.notescategory.Models.NotesCategory)">
+            <summary>
+            add notes category 
+            </summary>
+            <remarks>add new notes category information </remarks>
+            <param name="addNotesCategory">The notes category json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NotesCategoryController.UpdateNotesCategory(ds.pms.bl.notescategory.Models.NotesCategory)">
+            <summary>
+            update notes category 
+            </summary>
+            <remarks>update notes category information </remarks>
+            <param name="updateNotesCategory">The notes category json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NotesCategoryController.SoftDeleteNotesCategory(System.Int32)">
+            <summary>
+            soft delete notes category 
+            </summary>
+            <remarks>Soft delete notes category </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.NotesCategoryController.HardDeleteNotesCategory(System.Int32)">
+            <summary>
+            forcefully delete notes category 
+            </summary>
+            <remarks>forcefully delete notes category </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.PropertyController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.PropertyController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.properties.Service.PropertyService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            Property controller constructor
+            </summary>
+            <param name="propertyControllerLogger"></param>
+            <param name="propertyServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.PropertyController.GetActivePropertyList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get property list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.PropertyController.GetPropertyById(System.Int32)">
+            <summary>
+            get property by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.PropertyController.AddProperty(ds.pms.bl.properties.Models.Property)">
+            <summary>
+            add property 
+            </summary>
+            <remarks>add new property information </remarks>
+            <param name="addProperty">The property json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.PropertyController.UpdateProperty(ds.pms.bl.properties.Models.Property)">
+            <summary>
+            update property 
+            </summary>
+            <remarks>update property information </remarks>
+            <param name="updateProperty">The property json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.PropertyController.SoftDeleteProperty(System.Int32)">
+            <summary>
+            soft delete property 
+            </summary>
+            <remarks>Soft delete property </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.PropertyController.HardDeleteProperty(System.Int32)">
+            <summary>
+            forcefully delete property 
+            </summary>
+            <remarks>forcefully delete property </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.PropertyController.AddComplianceProperty(ds.pms.bl.properties.Models.AddComplianceProperty)">
+            <summary>
+            add compliance property
+            </summary>
+            <remarks>add compliance property </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ProviderController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.ProviderController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.providers.Services.ProviderService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            Provider controller constructor
+            </summary>
+            <param name="providerControllerLogger"></param>
+            <param name="providerServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ProviderController.GetActiveProviderList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get provider list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ProviderController.GetProviderById(System.Int32)">
+            <summary>
+            get provider by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ProviderController.AddProvider(ds.pms.bl.providers.Models.Provider)">
+            <summary>
+            add provider 
+            </summary>
+            <remarks>add new provider information </remarks>
+            <param name="addProvider">The provider json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ProviderController.UpdateProvider(ds.pms.bl.providers.Models.UpdateProvider)">
+            <summary>
+            update provider 
+            </summary>
+            <remarks>update provider information </remarks>
+            <param name="updateProvider">The provider json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ProviderController.CheckEmail(System.Nullable{System.Int64},System.String)">
+            <summary>
+            check if email is not in use for new provider
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ProviderController.SoftDeleteProvider(System.Int32)">
+            <summary>
+            soft delete provider 
+            </summary>
+            <remarks>Soft delete provider </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.ProviderController.HardDeleteProvider(System.Int32)">
+            <summary>
+            forcefully delete provider 
+            </summary>
+            <remarks>forcefully delete provider </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoleController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.RoleController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.roles.Services.RoleService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            role controller constructor
+            </summary>
+            <param name="roleControllerLogger"></param>
+            <param name="roleServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoleController.GetActiveRoleList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get role list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoleController.GetRoleById(System.Int32)">
+            <summary>
+            get role by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoleController.AddRole(ds.pms.bl.roles.Models.Role)">
+            <summary>
+            add role 
+            </summary>
+            <remarks>add new role information </remarks>
+            <param name="addRole">The role json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoleController.UpdateRole(ds.pms.bl.roles.Models.UpdateRole)">
+            <summary>
+            update role 
+            </summary>
+            <remarks>update role information </remarks>
+            <param name="updateRole">The role json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoleController.CheckRoleName(System.Int32,System.String)">
+            <summary>
+            check if rolename is not in use for new role
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoomController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.RoomController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.rooms.Services.RoomService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            Room controller constructor
+            </summary>
+            <param name="roomControllerLogger"></param>
+            <param name="roomServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoomController.GetActiveRoomList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get room list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoomController.GetRoomById(System.Int32)">
+            <summary>
+            get room by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoomController.AddRoom(ds.pms.bl.rooms.Models.Room)">
+            <summary>
+            add room 
+            </summary>
+            <remarks>add new room information </remarks>
+            <param name="addRoom">The room json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoomController.UpdateRoom(ds.pms.bl.rooms.Models.UpdateRoom)">
+            <summary>
+            update room 
+            </summary>
+            <remarks>update room information </remarks>
+            <param name="updateRoom">The room json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoomController.SoftDeleteRoom(System.Int32)">
+            <summary>
+            soft delete room 
+            </summary>
+            <remarks>Soft delete room </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.RoomController.HardDeleteRoom(System.Int32)">
+            <summary>
+            forcefully delete room 
+            </summary>
+            <remarks>forcefully delete room </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.TenantController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.TenantController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.tenants.Services.TenantService},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            Tenant controller constructor
+            </summary>
+            <param name="tenantControllerLogger"></param>
+            <param name="tenantServiceLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.TenantController.GetActiveTenantList(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get tenant list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.TenantController.GetTenantById(System.Int32)">
+            <summary>
+            get tenant by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.TenantController.AddTenant(ds.pms.bl.tenants.Models.Tenant)">
+            <summary>
+            add tenant 
+            </summary>
+            <remarks>add new tenant information </remarks>
+            <param name="addTenant">The tenant json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.TenantController.UpdateTenant(ds.pms.bl.tenants.Models.Tenant)">
+            <summary>
+            update tenant 
+            </summary>
+            <remarks>update tenant information </remarks>
+            <param name="updateTenant">The tenant json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.TenantController.SoftDeleteTenant(System.Int32)">
+            <summary>
+            soft delete tenant 
+            </summary>
+            <remarks>Soft delete tenant </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.TenantController.HardDeleteTenant(System.Int32)">
+            <summary>
+            forcefully delete tenant 
+            </summary>
+            <remarks>forcefully delete tenant </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.#ctor(Microsoft.Extensions.Logging.ILogger{ds.pms.api.Controllers.UserController},Microsoft.Extensions.Logging.ILogger{ds.pms.bl.users.Services.UserService},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.ConnectionSettings},Microsoft.Extensions.Options.IOptions{ds.pms.apicommon.Settings.IdentitySettings})">
+            <summary>
+            user controller constructor
+            </summary>
+            <param name="userControllerLogger"></param>
+            <param name="userServiceLogger"></param>
+            <param name="iConnectionSettings"></param>
+            <param name="iIdentitySettings"></param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.Authenticate(ds.pms.bl.users.Models.LoginUser)">
+            <summary>
+            authenticate user
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.GetActiveUsers(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            get user list
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.GetUserById(System.Int32)">
+            <summary>
+            get user by id
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.AddUser(ds.pms.bl.users.Models.AddUser)">
+            <summary>
+            add user 
+            </summary>
+            <remarks>add new user information </remarks>
+            <param name="user">The user json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.UpdateUser(ds.pms.bl.users.Models.UpdateUser)">
+            <summary>
+            update user 
+            </summary>
+            <remarks>update user information </remarks>
+            <param name="user">The user json format.</param>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.CheckUsername(System.Nullable{System.Int32},System.String)">
+            <summary>
+            check if username is not in use for new user
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.CheckEmail(System.Nullable{System.Int32},System.String)">
+            <summary>
+            check if email is not in use for new user
+            </summary>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.SoftDeleteUser(System.Int32)">
+            <summary>
+            soft delete user 
+            </summary>
+            <remarks>Soft delete user </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.HardDeleteUser(System.Int32)">
+            <summary>
+            forcefully delete user 
+            </summary>
+            <remarks>forcefully delete user </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.ChangePassword(System.Int32,System.String)">
+            <summary>
+            change password
+            </summary>
+            <remarks>change user password </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.AssignRolesToUser(ds.pms.bl.users.Models.AssignRolesToUser)">
+            <summary>
+            assign roles to user
+            </summary>
+            <remarks>assign roles to user </remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.RemoveRolesFromUser(ds.pms.bl.users.Models.AssignRolesToUser)">
+            <summary>
+            remove roles from user
+            </summary>
+            <remarks>remove roles from user</remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.UserController.AddProviderUser(System.Int32,System.Int32)">
+            <summary>
+            add provider user
+            </summary>
+            <remarks>add provider user</remarks>
+        </member>
+        <member name="M:ds.pms.api.Controllers.WeatherForecastController.Get">
+            <summary>
+            Start Survey
+            </summary>
+        </member>
+    </members>
+</doc>

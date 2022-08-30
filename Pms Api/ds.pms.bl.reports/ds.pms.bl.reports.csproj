@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Converters\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ds.pms.bl.logger\ds.pms.bl.logger.csproj" />
+    <ProjectReference Include="..\ds.pms.dal\ds.pms.dal.csproj" />
+  </ItemGroup>
+
+</Project>

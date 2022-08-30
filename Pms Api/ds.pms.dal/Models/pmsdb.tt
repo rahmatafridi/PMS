@@ -1,0 +1,10 @@
+﻿<#@ template language="C#" debug="True" hostSpecific="True"                            #>
+<#@ output extension=".generated.cs"                                                   #>
+<#@ include file="$(LinqToDBT4SqlServerTemplatesPath)LinqToDB.SqlServer.Tools.ttinclude" #>
+<#@ include file="$(LinqToDBT4SqlServerTemplatesPath)PluralizationService.ttinclude"      #>
+<#
+ string conn = "Server=DESKTOP-M05I8UI\\MSSQLSERVER01;Database=pms;Trusted_Connection=True;MultipleActiveResultSets=true";
+	NamespaceName = "ds.pms.dal.Models";
+    LoadSqlServerMetadata(conn);
+	GenerateModel();
+#>
